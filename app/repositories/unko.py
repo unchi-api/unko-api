@@ -28,7 +28,10 @@ class UnkoRepository:
         Returns:
             dict: 指定したIDに対応するうんこオブジェクトの辞書。
         """
-        return Unko.query.filter(Unko.id == unko_id).first().to_dict()
+        unko = Unko.query.filter(Unko.id == unko_id).first()
+        if unko is None:
+            return None  # データが存在しない場合はNoneを返す
+        return unko.to_dict()
 
     @staticmethod
     def create_unko(unko_name: str, color_id: int, size_id: int) -> dict:
