@@ -1,5 +1,5 @@
 from app.models.unko import Unko, Color, Size
-from app import db
+from app import db  #db = SQLAlchemy()のdbインスタンス
 
 def register_first_unko():
     """

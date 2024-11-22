@@ -15,9 +15,9 @@ class Unko(db.Model):
     name: str = db.Column(db.String(128), nullable=False)
     """うんこの名前"""
     color_id: int = db.Column(db.Integer, db.ForeignKey('colors.id'), nullable=False)
-    """色ID"""
+    """色ID（colorsテーブルのidと紐づけ）"""
     size_id: int = db.Column(db.Integer, db.ForeignKey('sizes.id'), nullable=False)
-    """サイズID"""
+    """サイズID(sizesテーブルのidと紐づけ)"""
     
     color: Mapped['Color'] = db.relationship('Color', back_populates='unkos')
     """色"""

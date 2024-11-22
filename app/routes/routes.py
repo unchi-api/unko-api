@@ -11,3 +11,6 @@ def get_all_unkos():
         return jsonify(unkos_list), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@bp.route('/unkos', methods=['GET'])
